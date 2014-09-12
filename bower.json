@@ -1,0 +1,32 @@
+{
+    "name": "sgc-auth",
+    "private": true,
+    "version": "0.0.1",
+    "description": "Sagacify's client data Model module.",
+    "main": "dist/sgc-auth.min.js",
+    "keywords": [
+        "auth",
+        "security",
+        "client",
+        "browser"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Sagacify/sgc-auth.git"
+    },
+    "ignore": {},
+    "dependencies": {
+        "underscore": "^1.7.0",
+        "requirejs": "^2.1.14",
+        "backbone": "^1.1.2",
+        "jquery": "^2.1.1"
+    },
+    "author": {
+        "name": "Sagacify Team",
+        "email": "info@sagacify.com"
+    },
+    "bugs": {
+        "url": "https://github.com/Sagacify/sgc-auth/issues"
+    },
+    "homepage": "https://github.com/Sagacify/sgc-auth"
+}

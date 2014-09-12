@@ -1,0 +1,35 @@
+{
+	"name": "sgc-model",
+	"private": true,
+	"version": "0.0.1",
+	"description": "Sagacify's client data Model module.",
+	"main": "dist/sgc-model.min.js",
+	"dependencies": {},
+	"devDependencies": {
+		"mocha": "^1.21.4",
+		"chai": "^1.9.1",
+		"grunt-cli": "^0.1.13",
+		"load-grunt-tasks": "^0.6.0",
+		"grunt-contrib-requirejs": "^0.4.4",
+		"grunt-mocha-phantomjs": "^0.6.0",
+		"grunt-contrib-jshint": "^0.10.0",
+		"grunt-contrib-clean": "^0.6.0",
+		"grunt-jsonlint": "^1.0.4",
+		"grunt-jscs": "^0.6.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Sagacify/sgc-model.git"
+	},
+	"scripts": {
+		"test": "grunt ci"
+	},
+	"author": {
+		"name": "Sagacify Team",
+		"email": "info@sagacify.com"
+	},
+	"bugs": {
+		"url": "https://github.com/Sagacify/sgc-model/issues"
+	},
+	"homepage": "https://github.com/Sagacify/sgc-model"
+}
