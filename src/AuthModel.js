@@ -39,6 +39,14 @@ define([], function () {
 			return Backbone.Model.prototype.set.apply(this, arguments);
 		},
 
+		has: function(attr){
+			if (attr in this.getLocalStorageAttributes()) {
+				return true;
+			};
+
+			return Backbone.Model.prototype.has.apply(this, arguments);
+		},
+
 		get: function(attr){
 			var val = Backbone.Model.prototype.get.apply(this, arguments);
 
@@ -113,7 +121,7 @@ define([], function () {
 						me.set('token', results.token, {localStorage:true});
 						me.set('id', results.user.username, {localStorage:true});
 						def.resolve();
-						this.set('state', 'LOGIN');
+						me.set('state', 'LOGIN');
 					} else {
 						def.reject();
 					}

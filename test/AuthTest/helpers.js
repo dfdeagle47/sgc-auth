@@ -26,6 +26,18 @@ define([
 
 				chai.assert.equal(_.keys(model._localStorageAttributes).length, 0);
 			});
+
+			it('Test Has function', function(){
+				var model = new AuthModel();
+				model.set('storedAttr', 'yvan', {localStorage:true});
+				model.set('unStoredAttr', 'francois');
+	
+				chai.assert.equal(model.has('storedAttr'), true);
+				chai.assert.equal(model.has('unStoredAttr'), true);
+				chai.assert.equal(model.has('Fakeattr'), false);
+
+			});
+
 		});	
 	};
 });

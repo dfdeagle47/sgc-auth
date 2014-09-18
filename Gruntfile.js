@@ -37,23 +37,28 @@ function GruntTasks (grunt) {
 			]
 		},
 		requirejs: {
-			all: {
+			min: {
 				options: {
 					baseUrl: 'src',
 					name: 'sgc-auth',
-					// mainConfigFile: 'src/public/dist/init.js',
 					out: 'dist/sgc-auth.min.js',
 					optimize: 'uglify2',
 					generateSourceMaps: false,
 					preserveLicenseComments: false,
 					inlineText: true,
 					findNestedDependencies: true
-					// paths: {
-					// 	requireLib: 'bower_components/requirejs/require'
-					// },
-					// include: [
-					// 	'requireLib'
-					// ]
+				}
+			},
+			concat: {
+				options: {
+					baseUrl: 'src',
+					name: 'sgc-auth',
+					out: 'dist/sgc-auth.js',
+					optimize: 'none',
+					generateSourceMaps: false,
+					preserveLicenseComments: false,
+					inlineText: true,
+					findNestedDependencies: true
 				}
 			}
 		},
