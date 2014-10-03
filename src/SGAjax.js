@@ -21,7 +21,7 @@ define([], function () {
 
 	Backbone.sync = function(method, model, options) {
 
-		_.defaults(options||{}, {
+		options = _.defaults(options||{}, {
 			contentType: 'application/json; charset=utf-8',
 			auth:true
 		});
