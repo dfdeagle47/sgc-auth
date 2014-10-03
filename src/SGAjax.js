@@ -6,7 +6,7 @@ define([], function () {
 	var defaultSync = Backbone.sync;
 
 	Backbone.getBearer = function(){
-		return 'bearer ' + localStorage.id + '|' + localStorage.token;
+		return 'bearer ' + localStorage.token;
 	};
 
 	Backbone.getAuthorization = function(){
@@ -20,7 +20,6 @@ define([], function () {
 	};
 
 	Backbone.sync = function(method, model, options) {
-
 		options = _.defaults(options||{}, {
 			contentType: 'application/json; charset=utf-8',
 			auth:true
