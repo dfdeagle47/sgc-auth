@@ -27,9 +27,7 @@ define([], function () {
 
 		if (options.auth) {
 			delete options.auth;	
-			if (options.headers) {
-				options.headers = _.extend(options.headers, Backbone.getAuthorization());
-			}
+			options.headers = _.extend(options.headers, Backbone.getAuthorization());
 		}
 
 		if (options.data) {
