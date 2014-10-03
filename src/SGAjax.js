@@ -20,6 +20,11 @@ define([], function () {
 	};
 
 	Backbone.sync = function(method, model, options) {
+		if(options === undefined) {
+			options = model;
+			model = undefined;
+		}
+
 		options = _.defaults(options||{}, {
 			contentType: 'application/json; charset=utf-8',
 			auth:true
