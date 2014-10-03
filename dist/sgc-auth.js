@@ -3,8 +3,6 @@ define('SGAjax',[], function () {
 
 	var Backbone = require('backbone');
 
-	var defaultSync = Backbone.sync;
-
 	Backbone.getBearer = function(){
 		return 'bearer ' + localStorage.token;
 	};
@@ -19,27 +17,25 @@ define('SGAjax',[], function () {
 		return localStorage.token = newToken;
 	};
 
-	Backbone.sync = function(method, model, options) {
-		if(options === undefined) {
-			options = model;
-			model = undefined;
-		}
-
-		options = _.defaults(options||{}, {
+	Backbone.ajax = function (options) {
+		options = _.defaults(options || {}, {
 			contentType: 'application/json; charset=utf-8',
-			auth:true
+			auth: true
 		});
 
 		if (options.auth) {
-			delete options.auth;	
-			options.headers = _.extend(options.headers, Backbone.getAuthorization());
+			delete options.auth;
+			options.headers = _.extend(
+				options.headers || {},
+				Backbone.getAuthorization()
+			);
 		}
 
 		if (options.data) {
 			options.data = JSON.stringify(options.data);
 		}
 
-		return defaultSync.apply(this, [method, model, options]);
+		return Backbone.$.ajax.apply(Backbone.$, arguments);
 	};
 
 	// return {
