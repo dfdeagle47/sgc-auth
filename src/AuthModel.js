@@ -42,7 +42,7 @@ define([], function () {
 		has: function(attr){
 			if (attr in this.getLocalStorageAttributes()) {
 				return true;
-			};
+			}
 
 			return Backbone.Model.prototype.has.apply(this, arguments);
 		},

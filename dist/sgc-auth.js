@@ -6,7 +6,7 @@ define('SGAjax',[], function () {
 	var defaultSync = Backbone.sync;
 
 	Backbone.getBearer = function(){
-		return 'bearer ' + localStorage.id + '|' + localStorage.token;
+		return 'bearer ' + localStorage.token;
 	};
 
 	Backbone.getAuthorization = function(){
@@ -20,17 +20,19 @@ define('SGAjax',[], function () {
 	};
 
 	Backbone.sync = function(method, model, options) {
+		if(options === undefined) {
+			options = model;
+			model = undefined;
+		}
 
-		_.defaults(options||{}, {
+		options = _.defaults(options||{}, {
 			contentType: 'application/json; charset=utf-8',
 			auth:true
 		});
 
 		if (options.auth) {
 			delete options.auth;	
-			if (options.headers) {
-				options.headers = _.extend(options.headers, Backbone.getAuthorization());
-			}
+			options.headers = _.extend(options.headers, Backbone.getAuthorization());
 		}
 
 		if (options.data) {
@@ -234,7 +236,7 @@ define('AuthModel',[], function () {
 		has: function(attr){
 			if (attr in this.getLocalStorageAttributes()) {
 				return true;
-			};
+			}
 
 			return Backbone.Model.prototype.has.apply(this, arguments);
 		},
