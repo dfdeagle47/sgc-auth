@@ -12,7 +12,7 @@ define([], function () {
 
 			var deferred = Backbone.ajax({
 				url: '/auth/bearer/logout',
-				type: 'POST',
+				type: 'GET',
 				data: args,
 				auth: true
 			});
