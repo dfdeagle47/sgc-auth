@@ -37,7 +37,7 @@ define([], function () {
 			});
 
 			deferred
-			.done(function () {
+			.done(function (results) {
 				me.set('token', results.token, {
 					localStorage: true
 				});
@@ -67,7 +67,7 @@ define([], function () {
 			});
 
 			deferred
-			.done(function () {
+			.done(function (results) {
 				me.set('token', results.token, {
 					localStorage: true
 				});
@@ -155,7 +155,7 @@ define([], function () {
 			});
 
 			deferred
-			.done(function () {
+			.done(function (results) {
 				me.set('token', results.token, {
 					localStorage: true
 				});

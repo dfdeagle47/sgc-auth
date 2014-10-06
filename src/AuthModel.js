@@ -1,7 +1,7 @@
 define([
-	'./FacebookAuthModel',
-	'./GoogleAuthModel',
-	'./LocalAuthModel'
+	'./strategies/FacebookAuthModel',
+	'./strategies/GoogleAuthModel',
+	'./strategies/LocalAuthModel'
 ], function (
 	FacebookAuthModel,
 	GoogleAuthModel,
