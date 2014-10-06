@@ -5,7 +5,7 @@ define([], function () {
 
 	return Backbone.Model.extend({
 
-		login: function () {
+		facebookLogin: function () {
 			var me = this;
 
 			var deferred = Backbone.ajax({

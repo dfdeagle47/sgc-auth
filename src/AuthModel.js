@@ -1,9 +1,17 @@
-define([], function () {
+define([
+	'./FacebookAuthModel',
+	'./GoogleAuthModel',
+	'./LocalAuthModel'
+], function (
+	FacebookAuthModel,
+	GoogleAuthModel,
+	LocalAuthModel
+) {
 	'use strict';
 
 	var Backbone = require('backbone');
 
-	return Backbone.Model.extend({
+	var AuthModel = Backbone.Model.extend({
 
 		sync: function (method, model, options){
 			if (options.url && this.testUrl) {
@@ -73,5 +81,11 @@ define([], function () {
 		}
 
 	});
+
+	_.extend(AuthModel, FacebookAuthModel);
+	_.extend(AuthModel, GoogleAuthModel);
+	_.extend(AuthModel, LocalAuthModel);
+
+	return AuthModel;
 
 });

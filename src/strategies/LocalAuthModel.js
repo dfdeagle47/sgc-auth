@@ -5,7 +5,7 @@ define([], function () {
 
 	return Backbone.Model.extend({
 
-		register: function (args) {
+		localRegister: function (args) {
 			/**
 			 * Minimum required fields:
 			 * - username (email)
@@ -20,7 +20,7 @@ define([], function () {
 			});
 		},
 
-		verifyEmail: function (args) {
+		localVerifyEmail: function (args) {
 			/**
 			 * Minimum required fields:
 			 * - username (email)
@@ -50,7 +50,7 @@ define([], function () {
 			return deferred;
 		},
 
-		login: function (args) {
+		localLogin: function (args) {
 			/**
 			 * Minimum required fields:
 			 * - username (email)
@@ -80,7 +80,7 @@ define([], function () {
 			return deferred;
 		},
 
-		changePassword: function (args) {
+		localChangePassword: function (args) {
 			/**
 			 * Minimum required fields:
 			 * - password
@@ -105,7 +105,7 @@ define([], function () {
 			return deferred;
 		},
 
-		logout: function (args) {
+		localLogout: function (args) {
 			/**
 			 * No required fields.
 			 */
@@ -123,7 +123,7 @@ define([], function () {
 			return deferred;
 		},
 
-		forgotPassword: function (args) {
+		localForgotPassword: function (args) {
 			/**
 			 * Minimum required fields:
 			 * - username (email)
@@ -137,7 +137,7 @@ define([], function () {
 			});
 		},
 
-		resetPassword: function (args) {
+		localResetPassword: function (args) {
 			/**
 			 * Minimum required fields:
 			 * - username
