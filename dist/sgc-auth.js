@@ -316,7 +316,7 @@ define('AuthModel',[
 		},
 
 		set: function(attr, raw, options){
-			_.defaults(options || {}, {
+			options = _.defaults(options || {}, {
 				localStorage: false
 			});
 
