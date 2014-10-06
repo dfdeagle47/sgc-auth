@@ -82,9 +82,9 @@ define([
 
 	});
 
-	_.extend(AuthModel, FacebookAuthModel);
-	_.extend(AuthModel, GoogleAuthModel);
-	_.extend(AuthModel, LocalAuthModel);
+	_.extend(AuthModel.prototype, FacebookAuthModel.prototype);
+	_.extend(AuthModel.prototype, GoogleAuthModel.prototype);
+	_.extend(AuthModel.prototype, LocalAuthModel.prototype);
 
 	return AuthModel;
 
