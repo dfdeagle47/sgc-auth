@@ -105,24 +105,6 @@ define([], function () {
 			return deferred;
 		},
 
-		localLogout: function (args) {
-			/**
-			 * No required fields.
-			 */
-
-			var deferred = Backbone.ajax({
-				url: '/auth/bearer/logout',
-				type: 'POST',
-				data: args,
-				auth: true
-			});
-
-			this.clear();
-			this.set('state', 'logged-out');
-			
-			return deferred;
-		},
-
 		localForgotPassword: function (args) {
 			/**
 			 * Minimum required fields:

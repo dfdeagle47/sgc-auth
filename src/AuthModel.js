@@ -1,10 +1,12 @@
 define([
 	'./strategies/FacebookAuthModel',
 	'./strategies/GoogleAuthModel',
+	'./strategies/BearerAuthModel',
 	'./strategies/LocalAuthModel'
 ], function (
 	FacebookAuthModel,
 	GoogleAuthModel,
+	BearerAuthModel,
 	LocalAuthModel
 ) {
 	'use strict';
@@ -84,6 +86,7 @@ define([
 
 	_.extend(AuthModel.prototype, FacebookAuthModel.prototype);
 	_.extend(AuthModel.prototype, GoogleAuthModel.prototype);
+	_.extend(AuthModel.prototype, BearerAuthModel.prototype);
 	_.extend(AuthModel.prototype, LocalAuthModel.prototype);
 
 	return AuthModel;

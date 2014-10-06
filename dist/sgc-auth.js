@@ -105,6 +105,34 @@ define('strategies/GoogleAuthModel',[], function () {
 	});
 
 });
+define('strategies/BearerAuthModel',[], function () {
+	
+
+	var Backbone = require('backbone');
+
+	return Backbone.Model.extend({
+
+		bearerLogout: function (args) {
+			/**
+			 * No required fields.
+			 */
+
+			var deferred = Backbone.ajax({
+				url: '/auth/bearer/logout',
+				type: 'POST',
+				data: args,
+				auth: true
+			});
+
+			this.clear();
+			this.set('state', 'logged-out');
+			
+			return deferred;
+		}
+
+	});
+
+});
 define('strategies/LocalAuthModel',[], function () {
 	
 
@@ -212,24 +240,6 @@ define('strategies/LocalAuthModel',[], function () {
 			return deferred;
 		},
 
-		localLogout: function (args) {
-			/**
-			 * No required fields.
-			 */
-
-			var deferred = Backbone.ajax({
-				url: '/auth/bearer/logout',
-				type: 'POST',
-				data: args,
-				auth: true
-			});
-
-			this.clear();
-			this.set('state', 'logged-out');
-			
-			return deferred;
-		},
-
 		localForgotPassword: function (args) {
 			/**
 			 * Minimum required fields:
@@ -281,10 +291,12 @@ define('strategies/LocalAuthModel',[], function () {
 define('AuthModel',[
 	'./strategies/FacebookAuthModel',
 	'./strategies/GoogleAuthModel',
+	'./strategies/BearerAuthModel',
 	'./strategies/LocalAuthModel'
 ], function (
 	FacebookAuthModel,
 	GoogleAuthModel,
+	BearerAuthModel,
 	LocalAuthModel
 ) {
 	
@@ -364,6 +376,7 @@ define('AuthModel',[
 
 	_.extend(AuthModel.prototype, FacebookAuthModel.prototype);
 	_.extend(AuthModel.prototype, GoogleAuthModel.prototype);
+	_.extend(AuthModel.prototype, BearerAuthModel.prototype);
 	_.extend(AuthModel.prototype, LocalAuthModel.prototype);
 
 	return AuthModel;
