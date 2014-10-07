@@ -33,7 +33,7 @@ define([], function () {
 			);
 		}
 
-		if (options.data) {
+		if (_.isObject(options.data) || _.isArray(options.data)) {
 			options.data = JSON.stringify(options.data);
 		}
 
