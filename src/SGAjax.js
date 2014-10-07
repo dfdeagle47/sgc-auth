@@ -19,9 +19,11 @@ define([], function () {
 
 	Backbone.ajax = function (options) {
 		options = _.defaults(options || {}, {
-			contentType: 'application/json; charset=utf-8',
+			// contentType: 'application/json; charset=utf-8',
 			auth: true
 		});
+
+		options.contentType = 'application/json; charset=utf-8';
 
 		if (options.auth) {
 			delete options.auth;
