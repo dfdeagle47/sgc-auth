@@ -6,26 +6,50 @@ define([], function () {
 	return Backbone.Model.extend({
 
 		googleLogin: function () {
-			var me = this;
-
-			var deferred = Backbone.ajax({
+			return Backbone.ajax({
 				url: '/auth/google/login',
 				type: 'GET',
 				auth: false
 			});
+		},
 
-			deferred
-			.done(function (results) {
-				me.set('token', results.token, {
-					localStorage: true
-				});
-				me.set('state', 'logged-in');
-			})
-			.fail(function (){
-				me.clear();
+		googleLoginPopup: function () {
+			var GoogleWindow = window.open(
+				'/auth/google/login',
+				'Google connect',
+				// ''
+				'scrollbars=yes,width=650,height=500' // TODO % not pixels
+			);
+
+			var deferred = $.Deferred();
+
+			var polling = window.setInterval(function() {
+				if (GoogleWindow.closed !== false) {
+					window.clearInterval(polling);
+					deferred.resolve();
+				}
+			}, 10);
+
+			return deferred.promise();
+		},
+
+		googleCallback: function (args) {
+			this.set('token', args.token, {
+				localStorage: true
 			});
+			this.set('state', 'logged-in');
 
-			return deferred;
+			var deferred = $.Deferred();
+
+			if(this !== top) {
+				window.close();
+			}
+
+			setTimeout(function () {
+				deferred.resolve();
+			}, 100);
+
+			return deferred.promise();
 		}
 
 	});
