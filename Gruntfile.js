@@ -82,14 +82,14 @@ function GruntTasks (grunt) {
 	]);
 
 	grunt.registerTask('build', [
-		// 'verify',
+		'verify',
 		'clean:dist',
 		'requirejs'
 	]);
 
 	grunt.registerTask('ci', [
 		'build',
-		// 'test'
+		'test'
 	]);
 }
 
