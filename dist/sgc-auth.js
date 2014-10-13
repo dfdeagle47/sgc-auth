@@ -130,6 +130,15 @@ define('strategies/GoogleAuthModel',[], function () {
 				}
 			}, 10);
 
+			setTimeout(function () {
+				deferred.reject();
+			}, 4000);
+
+			deferred
+			.done(function () {
+				this.set('state', 'logged-in');
+			});
+
 			return deferred.promise();
 		},
 
