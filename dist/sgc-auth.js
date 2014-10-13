@@ -137,7 +137,7 @@ define('strategies/GoogleAuthModel',[], function () {
 			deferred
 			.done(function () {
 				this.set('state', 'logged-in');
-			});
+			}.bind(this));
 
 			return deferred.promise();
 		},
