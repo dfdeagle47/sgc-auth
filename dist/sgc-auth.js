@@ -73,6 +73,15 @@ define('strategies/FacebookAuthModel',[], function () {
 				}
 			}, 10);
 
+			setTimeout(function () {
+				deferred.reject();
+			}, 4000);
+
+			deferred
+			.done(function () {
+				this.set('state', 'logged-in');
+			}.bind(this));
+
 			return deferred.promise();
 		},
 
