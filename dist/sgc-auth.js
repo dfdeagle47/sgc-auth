@@ -73,9 +73,9 @@ define('strategies/FacebookAuthModel',[], function () {
 				}
 			}, 10);
 
-			setTimeout(function () {
-				deferred.reject();
-			}, 4000);
+			// setTimeout(function () {
+			// 	deferred.reject();
+			// }, 4000);
 
 			deferred
 			.done(function () {
@@ -139,9 +139,9 @@ define('strategies/GoogleAuthModel',[], function () {
 				}
 			}, 10);
 
-			setTimeout(function () {
-				deferred.reject();
-			}, 4000);
+			// setTimeout(function () {
+			// 	deferred.reject();
+			// }, 4000);
 
 			deferred
 			.done(function () {

@@ -30,9 +30,9 @@ define([], function () {
 				}
 			}, 10);
 
-			setTimeout(function () {
-				deferred.reject();
-			}, 4000);
+			// setTimeout(function () {
+			// 	deferred.reject();
+			// }, 4000);
 
 			deferred
 			.done(function () {
