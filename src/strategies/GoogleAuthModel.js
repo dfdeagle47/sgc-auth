@@ -26,17 +26,21 @@ define([], function () {
 			var polling = window.setInterval(function() {
 				if (GoogleWindow.closed !== false) {
 					window.clearInterval(polling);
-					deferred.resolve();
+					if (this.get('token').length === 256) {
+						deferred.resolve();
+					}
+					else {
+						deferred.reject();
+					}
 				}
-			}, 10);
-
-			// setTimeout(function () {
-			// 	deferred.reject();
-			// }, 4000);
+			}.bind(this), 10);
 
 			deferred
 			.done(function () {
 				this.set('state', 'logged-in');
+			}.bind(this))
+			.fail(function () {
+				this.set('state', 'logged-out');
 			}.bind(this));
 
 			return deferred.promise();
