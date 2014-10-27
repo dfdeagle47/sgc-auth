@@ -26,7 +26,8 @@ define([], function () {
 			var polling = window.setInterval(function() {
 				if (GoogleWindow.closed !== false) {
 					window.clearInterval(polling);
-					if (this.get('token').length === 256) {
+					var token = this.get('token');
+					if (token && token.length === 256) {
 						deferred.resolve();
 					}
 					else {
