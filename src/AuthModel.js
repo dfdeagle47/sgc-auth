@@ -64,7 +64,7 @@ define([
 		get: function(attr){
 			var val = Backbone.Model.prototype.get.apply(this, arguments);
 
-			if (!val && this.getLocalStorageAttributes()[attr]) {
+			if (!val && (attr in localStorage) /*&& this.getLocalStorageAttributes()[attr]*/) {
 				return localStorage[attr];
 			}
 			
